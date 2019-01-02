@@ -17,9 +17,6 @@ export class GalleryComponent extends Component<IGallery, IState> {
   }
 
 public render(): React.ReactNode {
-    const list: any = this.props.exhibits.map((e) => {
-        return new ExhibitComponent(e);
-    });
     return (
         <div>
             {this.props.exhibits.map((e) => (

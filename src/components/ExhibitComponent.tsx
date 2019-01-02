@@ -23,11 +23,12 @@ export class ExhibitComponent extends Component<IExhibit, IState> {
 public render(): React.ReactNode {
   return (
       <div>
+        <h4>{this.props.id}. {this.props.title}</h4>
         <img src={"/res/img/" + this.props.filename}></img>
-        <h4>{this.props.id}: {this.props.title}</h4>
+        <p>Description: {this.props.description}</p>
         <p>Medium: {this.props.medium}</p>
         <p>Size: {this.props.size}</p>
-      <p>{this.props.description}</p></div>
+      </div>
     );
   }
 }
