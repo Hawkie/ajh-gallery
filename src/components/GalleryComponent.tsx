@@ -18,7 +18,7 @@ export class GalleryComponent extends Component<IGallery, IState> {
 
 public render(): React.ReactNode {
     return (
-        <div>
+        <div className="gallery">
             {this.props.exhibits.map((e) => (
                 <ExhibitComponent
                     key={e.id}

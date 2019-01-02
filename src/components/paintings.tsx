@@ -23,8 +23,17 @@ export class Paintings extends Component {
       title: "Stairhole",
       year: 2008,
     };
+    const e3: IExhibit = {
+      description: "View from the top of the cliff along the Dorset Jurassic coastline",
+      filename: "DOR_PLH_PCF120.jpg",
+      id: 3,
+      medium: "acrylic on canvas",
+      size: "75.5 x 75 cm",
+      title: "Another Stairhole",
+      year: 2008,
+    };
     const g: IGallery = {
-      exhibits: [e1, e2],
+      exhibits: [e1, e2, e3],
     };
     // const gc: GalleryComponent = new GalleryComponent(g);
     return (

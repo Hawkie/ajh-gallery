@@ -22,7 +22,7 @@ export class ExhibitComponent extends Component<IExhibit, IState> {
 
 public render(): React.ReactNode {
   return (
-      <div>
+      <div className="exhibit">
         <h4>{this.props.id}. {this.props.title}</h4>
         <img src={"/res/img/" + this.props.filename}></img>
         <p>Description: {this.props.description}</p>

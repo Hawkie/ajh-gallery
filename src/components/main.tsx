@@ -10,7 +10,7 @@ export class Main extends Component {
   public render(): React.ReactNode {
     return (
         <HashRouter>
-        <div>
+        <div className="navbar">
           <h1>AJH Gallery</h1>
           <ul className="header">
             <li><NavLink exact to="/">Home</NavLink></li>

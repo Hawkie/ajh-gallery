@@ -12,7 +12,8 @@ class Home extends Component {
         <h3>Paintings</h3>
         <p>Anita has been an artist since she was sixteen and uses oils, watercolours,
           acrylics and many other materials to create her paintings. The subject of her pictures range from the harbour
-          and scenes on the coast to the beautiful Dorset landscapes.</p>
+          and scenes on the <a href="https://jurassiccoast.org/">jurassic coast</a>
+           to the beautiful Dorset landscapes.</p>
           <h3>Assemblages</h3>
           <p>Anita crafts memorable assemblages that capture the essence of Poole in the way they look
             and from the materials they are made from. Using local materials from beaches such as

@@ -23,6 +23,29 @@ body {
     display: inline-block;
   }
 
+  .gallery {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .exhibit {
+    margin: 2px;
+  }
+  .exhibit h4 {
+    font-size: 12px;
+    margin: 0;
+  }
+  .exhibit p {
+    font-size: 10px;
+    margin: 0;
+  }
+  .exhibit img {
+    width: 100%;
+    border: solid 1px;
+    border-color: #111;
+  }
+
   .active {
     background-color: rgb(2, 79, 131);
   }
