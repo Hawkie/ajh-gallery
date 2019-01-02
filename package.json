@@ -1,6 +1,6 @@
 {
-  "homepage": "http://hawkie.neflify.com/",
-  "name": "website-react-ts",
+  "homepage": "http://ajh-gallery.neflify.com/",
+  "name": "ajh-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

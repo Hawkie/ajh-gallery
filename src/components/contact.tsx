@@ -6,7 +6,8 @@ export class Contact extends Component {
     return (
       <div>
         <h2>Contact Me.</h2>
-        <p>Github username: <code><a href="http://github.com/hawkie">Hawkie</a></code>.</p>
+        <h3>Exhibits</h3>
+        <a href="https://artuk.org/discover/artists/hawkins-anita-josephine-b-1943">Art UK, Poole, DORSET.</a>
       </div>
     );
   }

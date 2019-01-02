@@ -1,5 +1,5 @@
 body {
-    background-color: #00AAEE;
+    background-color: rgb(48, 99, 119);
     padding: 20px;
     margin: 0;
   }
@@ -24,7 +24,7 @@ body {
   }
 
   .active {
-    background-color: #0099FF;
+    background-color: rgb(2, 79, 131);
   }
   .content {
     background-color: #FFF;
