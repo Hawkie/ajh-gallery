@@ -3,6 +3,7 @@ import { Component } from "react";
 import { IExhibitBase } from "./ExhibitItemComponent";
 
 export interface IExhibitDetail extends IExhibitBase {
+  size: string;
   year: number;
 }
 

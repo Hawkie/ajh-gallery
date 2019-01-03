@@ -23,7 +23,6 @@ public render(): React.ReactNode {
                     id={e.id}
                     description={e.description}
                     medium={e.medium}
-                    size={e.size}
                     title={e.title}
                     filename={e.filename}
                     category={this.props.category}>

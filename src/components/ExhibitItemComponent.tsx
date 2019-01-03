@@ -7,7 +7,6 @@ export interface IExhibitBase {
   title: string;
   description: string;
   medium: string;
-  size: string;
   filename: string;
 }
 
@@ -29,7 +28,6 @@ public render(): React.ReactNode {
         </NavLink>
         <p>Description: {this.props.description}</p>
         <p>Medium: {this.props.medium}</p>
-        <p>Size: {this.props.size}</p>
       </div>
     );
   }
