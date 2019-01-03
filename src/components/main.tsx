@@ -1,15 +1,16 @@
 import * as React from "react";
 import { Component } from "react";
-import { HashRouter, NavLink, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, NavLink, Route, Switch } from "react-router-dom";
 import Assemblages from "./assemblages";
 import Contact from "./contact";
+import { DetailsComponent } from "./DetailsComponent";
 import Home from "./home";
 import Paintings from "./paintings";
 
 export class Main extends Component {
   public render(): React.ReactNode {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <div className="top">
             <img src="/ajh-logo.png"></img>
@@ -22,13 +23,16 @@ export class Main extends Component {
               <li><NavLink to="/contact">Contact</NavLink></li>
             </ul>
             <div className="content">
-            <Route exact path="/" component={Home}/>
-              <Route path="/assemblages" component={Assemblages}/>
-              <Route path="/paintings" component={Paintings}/>
-              <Route path="/contact" component={Contact}/>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/assemblages" component={Assemblages}/>
+                <Route exact path="/paintings" component={Paintings}/>
+                <Route path="/paintings/:id" component={DetailsComponent}/>
+                <Route path="/contact" component={Contact}/>
+              </Switch>
             </div>
         </div>
-        </HashRouter>
+        </BrowserRouter>
     );
   }
 }
