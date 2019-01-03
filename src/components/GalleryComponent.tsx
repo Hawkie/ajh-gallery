@@ -5,6 +5,7 @@ import { ExhibitItemComponent } from "./ExhibitItemComponent";
 
 export interface IGallery {
   exhibits: ReadonlyArray<IExhibitDetail>;
+  category: string;
 }
 
 export class GalleryComponent extends Component<IGallery> {
@@ -24,7 +25,8 @@ public render(): React.ReactNode {
                     medium={e.medium}
                     size={e.size}
                     title={e.title}
-                    filename={e.filename}>
+                    filename={e.filename}
+                    category={this.props.category}>
                 </ExhibitItemComponent>
             ))}
         </div>
