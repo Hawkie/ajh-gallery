@@ -6,14 +6,14 @@ body {
   h1, h2, p, ul, li {
     font-family: sans-serif;
   }
+  ul.header {
+    background-color: #111;
+    padding: 0;
+  }
   ul.header li {
     display: inline;
     list-style-type: none;
     margin: 0;
-  }
-  ul.header {
-    background-color: #111;
-    padding: 0;
   }
   ul.header li a {
     color: #FFF;
@@ -21,6 +21,17 @@ body {
     text-decoration: none;
     padding: 20px;
     display: inline-block;
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .top img {
+    height: 48px;
+  }
+  .top h1 {
+    font-size: 24px;
   }
 
   .gallery {

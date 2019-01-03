@@ -9,21 +9,24 @@ import Paintings from "./paintings";
 export class Main extends Component {
   public render(): React.ReactNode {
     return (
-        <HashRouter>
-        <div className="navbar">
-          <h1>AJH Gallery</h1>
-          <ul className="header">
-            <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink to="/assemblages">Assemblages</NavLink></li>
-            <li><NavLink to="/paintings">Paintings</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
-          </ul>
-          <div className="content">
-          <Route exact path="/" component={Home}/>
-            <Route path="/assemblages" component={Assemblages}/>
-            <Route path="/paintings" component={Paintings}/>
-            <Route path="/contact" component={Contact}/>
+      <HashRouter>
+        <div>
+          <div className="top">
+            <img src="/ajh-logo.png"></img>
+            <h1>AJH Gallery</h1>
           </div>
+            <ul className="header">
+              <li><NavLink exact to="/">Home</NavLink></li>
+              <li><NavLink to="/assemblages">Assemblages</NavLink></li>
+              <li><NavLink to="/paintings">Paintings</NavLink></li>
+              <li><NavLink to="/contact">Contact</NavLink></li>
+            </ul>
+            <div className="content">
+            <Route exact path="/" component={Home}/>
+              <Route path="/assemblages" component={Assemblages}/>
+              <Route path="/paintings" component={Paintings}/>
+              <Route path="/contact" component={Contact}/>
+            </div>
         </div>
         </HashRouter>
     );
