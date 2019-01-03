@@ -1,23 +1,14 @@
 import * as React from "react";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { ExhibitItemComponent, IExhibitItem } from "./ExhibitItemComponent";
 
-export interface IExhibit {
-  id: number;
-  title: string;
+export interface IExhibitDetail extends IExhibitItem {
   year: number;
-  description: string;
-  medium: string;
-  size: string;
-  filename: string;
 }
 
-interface IState {
-  s: string;
-}
-
-export class ExhibitComponent extends Component<IExhibit, IState> {
-  constructor(props: IExhibit) {
+export class ExhibitDetailComponent extends Component<IExhibitDetail> {
+  constructor(props: IExhibitDetail) {
     super(props);
   }
 
@@ -31,6 +22,7 @@ public render(): React.ReactNode {
         <p>Description: {this.props.description}</p>
         <p>Medium: {this.props.medium}</p>
         <p>Size: {this.props.size}</p>
+        <p>Year: {this.props.year}</p>
       </div>
     );
   }

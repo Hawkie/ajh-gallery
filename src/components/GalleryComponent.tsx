@@ -1,16 +1,13 @@
 import * as React from "react";
 import { Component } from "react";
-import { ExhibitComponent, IExhibit } from "./ExhibitComponent";
+import { IExhibitDetail } from "./ExhibitDetailComponent";
+import { ExhibitItemComponent } from "./ExhibitItemComponent";
 
 export interface IGallery {
-  exhibits: ReadonlyArray<IExhibit>;
+  exhibits: ReadonlyArray<IExhibitDetail>;
 }
 
-interface IState {
-  s: string;
-}
-
-export class GalleryComponent extends Component<IGallery, IState> {
+export class GalleryComponent extends Component<IGallery> {
 
   constructor(props: IGallery) {
     super(props);
@@ -20,16 +17,15 @@ public render(): React.ReactNode {
     return (
         <div className="gallery">
             {this.props.exhibits.map((e) => (
-                <ExhibitComponent
+                <ExhibitItemComponent
                     key={e.id}
                     id={e.id}
                     description={e.description}
                     medium={e.medium}
                     size={e.size}
                     title={e.title}
-                    filename={e.filename}
-                    year={e.year}>
-                </ExhibitComponent>
+                    filename={e.filename}>
+                </ExhibitItemComponent>
             ))}
         </div>
     );
