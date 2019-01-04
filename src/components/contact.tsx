@@ -11,8 +11,8 @@ export class Contact extends Component {
         href="https://artuk.org/discover/artists/hawkins-anita-josephine-b-1943">Art UK</a>
         </li>
         <hr></hr>
-        <p>email: <a href="anita4art@icloud.com">anita4art@icloud.com</a>
-        </p>
+        <p>email: <a href="hawkinsartwork2019@gmail.com">hawkinsartwork2019@gmail.com</a></p>
+        <p>gallery admin: <a href="paulhawkins123@gmail.com">paulhawkins123@gmail.com</a></p>
       </div>
     );
   }
