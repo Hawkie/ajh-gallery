@@ -24,7 +24,7 @@ public render(): React.ReactNode {
                     description={e.description}
                     medium={e.medium}
                     title={e.title}
-                    filename={e.filename}
+                    url={e.url}
                     category={this.props.category}>
                 </ExhibitItemComponent>
             ))}

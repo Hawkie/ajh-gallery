@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
 import { match } from "react-router-dom";
-import Assemblages from "./assemblages";
+import Assemblages, { assemblages } from "./assemblages";
 import { ExhibitDetailComponent, IExhibitDetail } from "./ExhibitDetailComponent";
-import { Paintings } from "./paintings";
+import { Paintings, paintings } from "./paintings";
 
 export interface IParams {
     id?: string;
@@ -22,9 +22,9 @@ export class DetailsComponent extends Component<IDetails> {
 
 public find(): ReadonlyArray<IExhibitDetail> {
     if (this.props.match.url.search("paintings") > -1) {
-        return Paintings.exhibits;
+        return paintings();
     } else if (this.props.match.url.search("assemblages") > -1) {
-        return Assemblages.exhibits;
+        return assemblages();
     }
     return [];
 }
@@ -42,7 +42,7 @@ public render(): React.ReactNode {
                     medium={e.medium}
                     size={e.size}
                     title={e.title}
-                    filename={e.filename}
+                    url={e.url}
                     year={e.year}>
                 </ExhibitDetailComponent>
             </div>
