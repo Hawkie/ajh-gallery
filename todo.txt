@@ -1,3 +1,17 @@
 Links to anitas art
 
 https://artuk.org/discover/artists/hawkins-anita-josephine-b-1943
+
+
+https://www.netlify.com/blog/2018/03/20/netlifys-aws-lambda-functions-bring-the-backend-to-your-frontend-workflow/
+
+add functions
+https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions--faunadb/#2-set-up-faunadb
+
+Add payment lambda and stripe https://macarthur.me/posts/building-a-lambda-function-with-netlify/
+Stripe https://stripe.com/docs/api
+
+// passing react props in router
+https://www.robinwieruch.de/react-pass-props-to-component/
+
+adding a bloghttps://www.netlify.com/blog/2017/09/26/how-to-build-a-serverless-seo-friendly-react-blog/

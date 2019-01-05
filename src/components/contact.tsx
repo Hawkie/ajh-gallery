@@ -11,8 +11,11 @@ export class Contact extends Component {
         href="https://artuk.org/discover/artists/hawkins-anita-josephine-b-1943">Art UK</a>
         </li>
         <hr></hr>
-        <p>email: <a href="hawkinsartwork2019@gmail.com">hawkinsartwork2019@gmail.com</a></p>
-        <p>gallery admin: <a href="paulhawkins123@gmail.com">paulhawkins123@gmail.com</a></p>
+        <p>Art query email: <a href="mailto:hawkinsartwork2019@gmail.com?Subject=AJH%20Art%20Query">
+        hawkinsartwork2019@gmail.com</a></p>
+        <p>Gallery admin email: <a href="mailto:paulhawkins123@gmail.com?Subject=AJH%20Admin%20Query">
+        paulhawkins123@gmail.com</a></p>
+        <p>env: {process.env.EMAIL}</p>
       </div>
     );
   }
