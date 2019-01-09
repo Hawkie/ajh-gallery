@@ -3,6 +3,7 @@ import { Component } from "react";
 
 export class Contact extends Component {
   public render(): React.ReactNode {
+    const em: string|undefined = process.env.NODE_ENV;
     return (
       <div className="contact">
         <h2>Where to find AJH art.</h2>
@@ -15,7 +16,7 @@ export class Contact extends Component {
         hawkinsartwork2019@gmail.com</a></p>
         <p>Gallery admin email: <a href="mailto:paulhawkins123@gmail.com?Subject=AJH%20Admin%20Query">
         paulhawkins123@gmail.com</a></p>
-        <p>env: {process.env.EMAIL}</p>
+        <p>env: {em}</p>
       </div>
     );
   }

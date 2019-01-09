@@ -4,8 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "typescript",
-            "tsconfig": "tsconfig.json",
+            "label": "Webpack build",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build"],
             "problemMatcher": [
                 "$tsc"
             ],
