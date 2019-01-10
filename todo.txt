@@ -15,3 +15,6 @@ Stripe https://stripe.com/docs/api
 https://www.robinwieruch.de/react-pass-props-to-component/
 
 adding a bloghttps://www.netlify.com/blog/2017/09/26/how-to-build-a-serverless-seo-friendly-react-blog/
+
+// generic repo
+https://hackernoon.com/generic-repository-with-typescript-and-node-js-731c10a1b98e
