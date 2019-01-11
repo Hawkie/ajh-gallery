@@ -1,8 +1,9 @@
+import { APIGatewayEvent, Context } from "aws-lambda";
 import dotenv from "dotenv";
 import { Collection, Db, MongoClient, MongoError } from "mongodb";
 import { DbClient, getConnection, getDb } from "../ts/DbClient";
 
-exports.handler = async (event, context) => {
+exports.handler = async (event: APIGatewayEvent, context: Context) => {
     return getData()
     .then((e: IExhibit[]) => {
         // tslint:disable-next-line:no-console

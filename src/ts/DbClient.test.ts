@@ -4,9 +4,9 @@ import { IExhibit } from "../functions/galleryData";
 import { getConnection, getDb } from "./DbClient";
 
 dotenv.config();
-const dbUrl: string = process.env.DB_URL;
-const dbName: string = process.env.DB_NAME;
-const dbCollection = process.env.DB_COLLECTION;
+const dbUrl: string = process.env.TEST_DB_URL;
+const dbName: string = process.env.TEST_DB_NAME;
+const dbCollection = process.env.TEST_DB_COLLECTION;
 
 // asynchronous tests
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
-import { IExhibitDetail } from "./ExhibitDetailComponent";
+import { IExhibitDetail } from "../ts/Exhibit";
+import { readAll } from "../ts/FetchData";
 import { GalleryComponent, IGallery } from "./GalleryComponent";
 
 const p1: IExhibitDetail = {
@@ -31,17 +32,27 @@ const p3: IExhibitDetail = {
   year: 2008,
 };
 
-export function paintings(): ReadonlyArray<IExhibitDetail> {
-  return [p1, p2, p3];
+interface IExhibits {
+  readonly data: ReadonlyArray<IExhibitDetail>;
 }
 
-export class Paintings extends Component {
+export class Paintings extends Component<any, IExhibits>  {
+  constructor(props: null) {
+    super(props);
+    this.state = { data: [] };
+  }
+
   public render(): React.ReactNode {
     return (
       <div>
-        <GalleryComponent category="paintings" exhibits={paintings()}></GalleryComponent>
+        <GalleryComponent category="paintings" exhibits={this.state.data}></GalleryComponent>
       </div>
     );
+  }
+
+  public async componentDidMount() {
+    const data: IExhibitDetail[] = await readAll("/.netlify/functions/galleryData");
+    this.setState({ data });
   }
 }
 

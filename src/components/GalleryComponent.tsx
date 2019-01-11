@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { IExhibitDetail } from "./ExhibitDetailComponent";
+import { IExhibitDetail } from "../ts/Exhibit";
 import { ExhibitItemComponent } from "./ExhibitItemComponent";
 
 export interface IGallery {

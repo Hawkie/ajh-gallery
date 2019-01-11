@@ -24,7 +24,7 @@ export class DbClient {
 
 export async function getConnection(url: string): Promise<MongoClient> {
     const options = { useNewUrlParser: true };
-    return await MongoClient.connect(url, options);
+    return MongoClient.connect(url, options);
 }
 
 export function getDb(connection: MongoClient, name: string): Db {

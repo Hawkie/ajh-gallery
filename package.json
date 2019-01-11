@@ -20,7 +20,7 @@
     "build:prod": "npm run build; npm run build:lambda",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:lambda": "netlify-lambda serve src/functions",
+    "start:lambda": "netlify-lambda serve src/functions -p 9005",
     "build:lambda": "netlify-lambda build src/functions"
   },
   "eslintConfig": {
@@ -40,6 +40,7 @@
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/react-router-dom": "^4.3.1",
+    "http-proxy-middleware": "^0.19.1",
     "react-router-dom": "^4.3.1"
   }
 }

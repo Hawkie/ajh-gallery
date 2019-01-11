@@ -1,18 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
-
-export interface IExhibitBase {
-  id: number;
-  title: string;
-  description: string;
-  medium: string;
-  url: string;
-}
-
-export interface IExhibitItem extends IExhibitBase {
-  category: string;
-}
+import { IExhibitItem } from "../ts/Exhibit";
 
 export class ExhibitItemComponent extends Component<IExhibitItem> {
   constructor(props: IExhibitItem) {

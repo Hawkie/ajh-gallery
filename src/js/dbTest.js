@@ -6,9 +6,9 @@ dotenv.config();
 // Connection URL
 const dbUrl = process.env.DB_URL;
 const dbName = process.env.DB_NAME;
+const dbCollection = process.env.DB_COLLECTION;
  
 // Database Name
-const dbName = 'test';
 const options = { useNewUrlParser: true };
 // Use connect method to connect to the server
 MongoClient.connect(dbUrl, options, function(err, client) {
@@ -16,7 +16,7 @@ MongoClient.connect(dbUrl, options, function(err, client) {
   console.log("Connected successfully to server");
   console.log("Connected: " + client.isConnected())
   const db = client.db(dbName);
-  const col = db.collection("exhibits");
+  const col = db.collection(dbCollection);
   col.find().count().then((x)=> {
       console.log("count:" + x);
   });

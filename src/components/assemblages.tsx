@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { IExhibitDetail } from "./ExhibitDetailComponent";
+import { IExhibitDetail } from "../ts/Exhibit";
 import { GalleryComponent } from "./GalleryComponent";
 
 const a1: IExhibitDetail = {
