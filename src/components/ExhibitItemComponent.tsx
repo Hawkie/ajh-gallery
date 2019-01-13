@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { IExhibitItem } from "../ts/Exhibit";
+import { IExhibitBase } from "../ts/Exhibit";
 
-export class ExhibitItemComponent extends Component<IExhibitItem> {
-  constructor(props: IExhibitItem) {
+export class ExhibitItemComponent extends Component<IExhibitBase> {
+  constructor(props: IExhibitBase) {
     super(props);
   }
 
@@ -12,7 +12,7 @@ public render(): React.ReactNode {
   return (
       <div className="exhibit">
         <h4>{this.props.id}. {this.props.title}</h4>
-        <NavLink to={`/${this.props.category}/${this.props.id}`}>
+        <NavLink to={`/exhibits/${this.props.category}/${this.props.id}`}>
           <img src={this.props.url}></img>
         </NavLink>
         <p>Description: {this.props.description}</p>

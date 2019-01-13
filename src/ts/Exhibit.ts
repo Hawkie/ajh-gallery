@@ -1,5 +1,6 @@
 export interface IExhibitBase {
     id: number;
+    category: string;
     title: string;
     description: string;
     medium: string;
@@ -10,7 +11,3 @@ export interface IExhibitDetail extends IExhibitBase {
     size: string;
     year: number;
 }
-
-export interface IExhibitItem extends IExhibitBase {
-    category: string;
-  }
