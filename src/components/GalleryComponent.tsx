@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Component } from "react";
-import { IExhibitDetail } from "../ts/Exhibit";
+import { categoryEnum, IExhibitDetail } from "../ts/Exhibit";
 import { ExhibitItemComponent } from "./ExhibitItemComponent";
 
 export interface IGallery {
   exhibits: ReadonlyArray<IExhibitDetail>;
-  category: string;
+  filterCatId: categoryEnum;
 }
 
 export class GalleryComponent extends Component<IGallery> {
@@ -15,17 +15,19 @@ export class GalleryComponent extends Component<IGallery> {
   }
 
 public render(): React.ReactNode {
+    const items: IExhibitDetail[] = this.props.exhibits.filter((e) => e.catId === this.props.filterCatId);
     return (
         <div className="gallery">
-            {this.props.exhibits.filter((e) => e.category === this.props.category).map((e) => (
+            {items.map((e) => (
                 <ExhibitItemComponent
                     key={e.id}
                     id={e.id}
+                    catId={e.catId}
+                    category={e.category}
                     description={e.description}
                     medium={e.medium}
                     title={e.title}
-                    url={e.url}
-                    category={this.props.category}>
+                    url={e.url}>
                 </ExhibitItemComponent>
             ))}
         </div>

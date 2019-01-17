@@ -24,3 +24,5 @@ https://medium.com/@chimera.zen/how-to-make-a-crud-with-netlify-create-react-app
 
 swagger wrapper on lambda
 https://www.npmjs.com/package/swagger-lambda
+
+https://ctrlq.org/google/photos/

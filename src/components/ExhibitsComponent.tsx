@@ -2,13 +2,13 @@ import * as React from "react";
 import { Component } from "react";
 import { Route, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
-import { IExhibitDetail } from "../ts/Exhibit";
+import { categoryEnum, IExhibitDetail } from "../ts/Exhibit";
 import { readAll } from "../ts/FetchData";
 import { DetailsComponent } from "./DetailsComponent";
 import { GalleryComponent } from "./GalleryComponent";
 
 interface IExhibitFilter {
-    category: string;
+    filterCatId: categoryEnum;
 }
 
 interface IExhibits {
@@ -36,7 +36,7 @@ export class ExhibitsComponent extends Component<IExhibitFilter, IExhibits>  {
                     </Route>
                 <Route exact path="/exhibits/assemblages" render={() =>
                     <GalleryComponent
-                        category="assemblage"
+                        filterCatId={categoryEnum.Assemblage}
                         exhibits={this.state.data}/>}/>
                 <Route path="/exhibits/painting/:id" render={(props) =>
                     <DetailsComponent
@@ -45,7 +45,7 @@ export class ExhibitsComponent extends Component<IExhibitFilter, IExhibits>  {
                     </Route>
                 <Route exact path="/exhibits/paintings" render={() =>
                     <GalleryComponent
-                        category="painting"
+                        filterCatId={categoryEnum.Painting}
                         exhibits={this.state.data}/>}/>
             </Switch>
         </div>

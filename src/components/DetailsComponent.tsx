@@ -35,6 +35,7 @@ public render(): React.ReactNode {
                     <ExhibitDetailComponent
                         key={e.id}
                         id={e.id}
+                        catId={e.catId}
                         category={e.category}
                         description={e.description}
                         medium={e.medium}
