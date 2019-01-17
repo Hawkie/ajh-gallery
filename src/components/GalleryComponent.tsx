@@ -4,8 +4,9 @@ import { categoryEnum, IExhibitDetail } from "../ts/Exhibit";
 import { ExhibitItemComponent } from "./ExhibitItemComponent";
 
 export interface IGallery {
-  exhibits: ReadonlyArray<IExhibitDetail>;
-  filterCatId: categoryEnum;
+  readonly exhibits: ReadonlyArray<IExhibitDetail>;
+  readonly paintings: boolean;
+  readonly assemblages: boolean;
 }
 
 export class GalleryComponent extends Component<IGallery> {
@@ -15,7 +16,13 @@ export class GalleryComponent extends Component<IGallery> {
   }
 
 public render(): React.ReactNode {
-    const items: IExhibitDetail[] = this.props.exhibits.filter((e) => e.catId === this.props.filterCatId);
+    let items: IExhibitDetail[] = this.props.exhibits.map((x: IExhibitDetail) => x);
+    if (!this.props.paintings) {
+        items = items.filter((e) => e.catId !== categoryEnum.Painting);
+    }
+    if (!this.props.assemblages) {
+        items = items.filter((e) => e.catId !== categoryEnum.Assemblage);
+    }
     return (
         <div className="gallery">
             {items.map((e) => (

@@ -11,42 +11,70 @@ interface IExhibitFilter {
     filterCatId: categoryEnum;
 }
 
-interface IExhibits {
+interface IExhibitsState {
   readonly data: ReadonlyArray<IExhibitDetail>;
+  readonly paintings: boolean;
+  readonly assemblages: boolean;
 }
 
-export class ExhibitsComponent extends Component<IExhibitFilter, IExhibits>  {
+export class ExhibitsComponent extends Component<IExhibitFilter, IExhibitsState>  {
   constructor(props: IExhibitFilter) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+        assemblages: true,
+        data: [],
+        paintings: true,
+    };
+  }
+
+  public check(event: React.ChangeEvent<HTMLInputElement>): void {
+    if (event.target.id === "paintings") {
+        this.setState((prevState: IExhibitsState) => (
+            {...prevState,
+                paintings: !prevState.paintings,
+            }));
+    } else if (event.target.id === "assemblages") {
+        this.setState((prevState: IExhibitsState) => (
+            {...prevState,
+                assemblages: !prevState.assemblages,
+            }));
+        }
   }
 
   public render(): React.ReactNode {
     return (
         <div>
-            <ul className="header">
-                <li><NavLink to="/exhibits/assemblages">Assemblages</NavLink></li>
-                <li><NavLink to="/exhibits/paintings">Paintings</NavLink></li>
-            </ul>
+            <div>
+            <input type="checkbox"
+                id="paintings"
+                name="paintings"
+                onChange={this.check.bind(this)}
+                checked={this.state.paintings}/>
+            <text>Paintings</text>
+            <input type="checkbox"
+                id="assemblages"
+                name="assemblages"
+                onChange={this.check.bind(this)}
+                checked={this.state.assemblages}/>
+                <text>Assemblages</text>
+          </div>
             <Switch>
             <Route path="/exhibits/assemblage/:id" render={(props) =>
-                    <DetailsComponent
-                        match={props.match}
-                        exhibits={this.state.data}/>}>}
-                    </Route>
-                <Route exact path="/exhibits/assemblages" render={() =>
-                    <GalleryComponent
-                        filterCatId={categoryEnum.Assemblage}
-                        exhibits={this.state.data}/>}/>
-                <Route path="/exhibits/painting/:id" render={(props) =>
-                    <DetailsComponent
-                        match={props.match}
-                        exhibits={this.state.data}/>}>}
-                    </Route>
-                <Route exact path="/exhibits/paintings" render={() =>
-                    <GalleryComponent
-                        filterCatId={categoryEnum.Painting}
-                        exhibits={this.state.data}/>}/>
+                <DetailsComponent
+                    match={props.match}
+                    exhibits={this.state.data}/>}>
+            </Route>
+            <Route path="/exhibits/painting/:id" render={(props) =>
+                <DetailsComponent
+                    match={props.match}
+                    exhibits={this.state.data}/>}>
+            </Route>
+            <Route path="/exhibits">
+                <GalleryComponent
+                    exhibits={this.state.data}
+                    paintings={this.state.paintings}
+                    assemblages={this.state.assemblages}/>
+            </Route>
             </Switch>
         </div>
     );
