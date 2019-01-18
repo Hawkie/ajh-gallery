@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import { Route, Switch } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Button, ButtonGroup } from "reactstrap";
 import { categoryEnum, IExhibitDetail } from "../ts/Exhibit";
 import { readAll } from "../ts/FetchData";
 import { DetailsComponent } from "./DetailsComponent";
@@ -17,7 +17,7 @@ interface IExhibitsState {
   readonly assemblages: boolean;
 }
 
-export class ExhibitsComponent extends Component<IExhibitFilter, IExhibitsState>  {
+export class ExhibitsComponent extends Component<{}, IExhibitsState>  {
   constructor(props: IExhibitFilter) {
     super(props);
     this.state = {
@@ -25,39 +25,22 @@ export class ExhibitsComponent extends Component<IExhibitFilter, IExhibitsState>
         data: [],
         paintings: true,
     };
+    this.click = this.click.bind(this);
   }
 
-  public check(event: React.ChangeEvent<HTMLInputElement>): void {
-    if (event.target.id === "paintings") {
-        this.setState((prevState: IExhibitsState) => (
-            {...prevState,
-                paintings: !prevState.paintings,
-            }));
-    } else if (event.target.id === "assemblages") {
-        this.setState((prevState: IExhibitsState) => (
-            {...prevState,
-                assemblages: !prevState.assemblages,
-            }));
-        }
+  public click(radioId: number): void {
+    this.setState((prevState: IExhibitsState) => (
+        {...prevState,
+            // tslint:disable-next-line:no-bitwise
+            assemblages: (radioId & categoryEnum.Assemblage) === categoryEnum.Assemblage,
+            // tslint:disable-next-line:no-bitwise
+            paintings: (radioId & categoryEnum.Painting) === categoryEnum.Painting,
+        }));
   }
 
   public render(): React.ReactNode {
     return (
         <div>
-            <div>
-            <input type="checkbox"
-                id="paintings"
-                name="paintings"
-                onChange={this.check.bind(this)}
-                checked={this.state.paintings}/>
-            <text>Paintings</text>
-            <input type="checkbox"
-                id="assemblages"
-                name="assemblages"
-                onChange={this.check.bind(this)}
-                checked={this.state.assemblages}/>
-                <text>Assemblages</text>
-          </div>
             <Switch>
             <Route path="/exhibits/assemblage/:id" render={(props) =>
                 <DetailsComponent
@@ -70,10 +53,29 @@ export class ExhibitsComponent extends Component<IExhibitFilter, IExhibitsState>
                     exhibits={this.state.data}/>}>
             </Route>
             <Route path="/exhibits">
-                <GalleryComponent
-                    exhibits={this.state.data}
-                    paintings={this.state.paintings}
-                    assemblages={this.state.assemblages}/>
+            <div>
+                <ButtonGroup>
+                <Button
+                        color="secondary"
+                        onClick={() => this.click(categoryEnum.All)}
+                        active={this.state.paintings && this.state.assemblages}>
+                    All</Button>
+                    <Button
+                        color="secondary"
+                        onClick={() => this.click(categoryEnum.Painting)}
+                        active={this.state.paintings}>
+                    Paintings</Button>
+                    <Button
+                        color="secondary"
+                        onClick={() => this.click(categoryEnum.Assemblage)}
+                        active={this.state.assemblages}>
+                    Assemblages</Button>
+                </ButtonGroup>
+                    <GalleryComponent
+                        exhibits={this.state.data}
+                        paintings={this.state.paintings}
+                        assemblages={this.state.assemblages}/>
+            </div>
             </Route>
             </Switch>
         </div>
@@ -82,7 +84,10 @@ export class ExhibitsComponent extends Component<IExhibitFilter, IExhibitsState>
 
   public async componentDidMount() {
     const data: IExhibitDetail[] = await readAll("/.netlify/functions/galleryData");
-    this.setState({ data });
+    this.setState((prevState: IExhibitsState) => (
+        {...prevState,
+            data,
+        }));
   }
 }
 

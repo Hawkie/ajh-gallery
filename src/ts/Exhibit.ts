@@ -1,6 +1,7 @@
 export enum categoryEnum {
     Painting = 1,
     Assemblage = 2,
+    All = 3,
 }
 
 export interface IExhibitBase {

@@ -1,5 +1,12 @@
 Links to anitas art
 
+
+1. spinner when loading
+2. style of checkbox filter
+
+Switch control/component
+https://scotch.io/tutorials/build-a-custom-toggle-switch-with-react
+
 https://artuk.org/discover/artists/hawkins-anita-josephine-b-1943
 
 
