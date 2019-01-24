@@ -14,6 +14,7 @@ public render(): React.ReactNode {
         <img src={this.props.url}></img>
         <p>Description: {this.props.description}</p>
         <p>Medium: {this.props.medium}</p>
+        <p>Price: £{this.props.price}</p>
         <p>Size: {this.props.size}</p>
         <p>Year: {this.props.year}</p>
       </div>

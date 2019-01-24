@@ -56,17 +56,17 @@ export class ExhibitsComponent extends Component<{}, IExhibitsState>  {
             <div>
                 <ButtonGroup>
                 <Button
-                        color="secondary"
+                        color="primary"
                         onClick={() => this.click(categoryEnum.All)}
                         active={this.state.paintings && this.state.assemblages}>
                     All</Button>
                     <Button
-                        color="secondary"
+                        color="primary"
                         onClick={() => this.click(categoryEnum.Painting)}
                         active={this.state.paintings}>
                     Paintings</Button>
                     <Button
-                        color="secondary"
+                        color="primary"
                         onClick={() => this.click(categoryEnum.Assemblage)}
                         active={this.state.assemblages}>
                     Assemblages</Button>

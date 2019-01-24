@@ -33,6 +33,7 @@ public render(): React.ReactNode {
                     category={e.category}
                     description={e.description}
                     medium={e.medium}
+                    price={e.price}
                     title={e.title}
                     url={e.url}>
                 </ExhibitItemComponent>

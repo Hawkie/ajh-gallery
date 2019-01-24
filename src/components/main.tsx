@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "mdbootstrap/css/mdb.min.css";
 import * as React from "react";
 import { Component } from "react";
 import { BrowserRouter, HashRouter, NavLink, Route, Switch } from "react-router-dom";

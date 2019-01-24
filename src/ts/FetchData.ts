@@ -4,6 +4,10 @@ export function readAll(url: string): Promise<IExhibitDetail[]> {
     return fetch(url)
     .then((response: Response) => {
         return response.json();
+    })
+    .catch((error) => {
+        console.log("Read Error: " + error);
+        return error;
     });
 }
 

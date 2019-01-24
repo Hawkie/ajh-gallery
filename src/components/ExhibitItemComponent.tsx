@@ -2,6 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { IExhibitBase } from "../ts/Exhibit";
+import { PriceComponent } from "./PriceComponent";
 
 export class ExhibitItemComponent extends Component<IExhibitBase> {
   constructor(props: IExhibitBase) {
@@ -17,6 +18,7 @@ public render(): React.ReactNode {
         </NavLink>
         <p>Description: {this.props.description}</p>
         <p>Medium: {this.props.medium}</p>
+        <PriceComponent price={this.props.price}/>
       </div>
     );
   }

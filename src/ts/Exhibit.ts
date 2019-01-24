@@ -10,11 +10,12 @@ export interface IExhibitBase {
     category: string;
     title: string;
     description: string;
-    medium: string;
+    medium?: string;
     url: string;
+    price: number;
 }
 
 export interface IExhibitDetail extends IExhibitBase {
-    size: string;
-    year: number;
+    size?: string;
+    year?: number;
 }

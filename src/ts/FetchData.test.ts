@@ -56,11 +56,11 @@ test("convert_GetsMissingYear", () => {
     expect(exhibit.year).toBeUndefined();
 });
 
-// test("getAll_GetsDescription", async () => {
-//     // let ACTUAL_DES: string = null;
-//     await fetch("/.netlify/functions/galleryData")
-//     .then(async (response: Response) => {
-//         const a = response.json();
-//         await a.then ((v: any) => console.log(v));
-//     });
-// });
+test("getAll_GetsDescription", async () => {
+    // let ACTUAL_DES: string = null;
+    await fetch("/.netlify/functions/galleryData")
+    .then(async (response: Response) => {
+        const a = response.json();
+        await a.then ((v: any) => console.log(v));
+    });
+});

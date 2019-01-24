@@ -39,6 +39,7 @@ public render(): React.ReactNode {
                         category={e.category}
                         description={e.description}
                         medium={e.medium}
+                        price={e.price}
                         size={e.size}
                         title={e.title}
                         url={e.url}
