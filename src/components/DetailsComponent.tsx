@@ -5,8 +5,8 @@ import { IExhibitDetail } from "../ts/Exhibit";
 import { ExhibitDetailComponent } from "./ExhibitDetailComponent";
 
 export interface IParams {
-    id?: string;
-    url: string;
+  id?: string;
+  url: string;
 }
 
 export interface IDetails {
@@ -17,37 +17,37 @@ export interface IDetails {
 export class DetailsComponent extends Component<IDetails> {
   constructor(props: IDetails) {
     super(props);
-}
+  }
 
-public find(id: number): IExhibitDetail | undefined {
+  public find(id: number): IExhibitDetail | undefined {
     return this.props.exhibits.find((e: IExhibitDetail) => {
-        return e.id === id;
-      });
-}
+      return e.id === id;
+    });
+  }
 
-public render(): React.ReactNode {
+  public render(): React.ReactNode {
     if (this.props.match.params.id !== undefined) {
-        const id: number = +this.props.match.params.id;
-        const e: IExhibitDetail | undefined = this.find(id);
-        if (e !== undefined) {
-            return (
-                <div className="details">
-                    <ExhibitDetailComponent
-                        key={e.id}
-                        id={e.id}
-                        catId={e.catId}
-                        category={e.category}
-                        description={e.description}
-                        medium={e.medium}
-                        price={e.price}
-                        size={e.size}
-                        title={e.title}
-                        url={e.url}
-                        year={e.year}>
-                    </ExhibitDetailComponent>
-                </div>
-            );
-        }
+      const id: number = +this.props.match.params.id;
+      const e: IExhibitDetail | undefined = this.find(id);
+      if (e !== undefined) {
+        return (
+          <div className="details">
+            <ExhibitDetailComponent
+              key={e.id}
+              id={e.id}
+              catId={e.catId}
+              category={e.category}
+              description={e.description}
+              medium={e.medium}
+              price={e.price}
+              size={e.size}
+              title={e.title}
+              url={e.url}
+              year={e.year}
+            ></ExhibitDetailComponent>
+          </div>
+        );
+      }
     }
   }
 }
