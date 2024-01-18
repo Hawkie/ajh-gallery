@@ -1,13 +1,13 @@
 import { IExhibitDetail } from "./Exhibit";
 
 export function readAll(url: string): Promise<IExhibitDetail[]> {
-    return fetch(url)
+  return fetch(url)
     .then((response: Response) => {
-        return response.json();
+      return response.json();
     })
     .catch((error) => {
-        console.log("Read Error: " + error);
-        return error;
+      console.log("Read Error: " + error);
+      return error;
     });
 }
 

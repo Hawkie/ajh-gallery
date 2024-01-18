@@ -43,24 +43,25 @@ const s2: string = `{
 // });
 
 test("convert_GetsDescription", () => {
-    // tslint:disable-next-line:no-console
-    console.log(s1);
-    const exhibit: IExhibitDetail = JSON.parse(s1);
-    expect(exhibit.description).toBe("View of Corfe Castle in between the downs");
+  // tslint:disable-next-line:no-console
+  console.log(s1);
+  const exhibit: IExhibitDetail = JSON.parse(s1);
+  expect(exhibit.description).toBe("View of Corfe Castle in between the downs");
 });
 
 test("convert_GetsMissingYear", () => {
-    // tslint:disable-next-line:no-console
-    console.log(s2);
-    const exhibit: IExhibitDetail = JSON.parse(s2);
-    expect(exhibit.year).toBeUndefined();
+  // tslint:disable-next-line:no-console
+  console.log(s2);
+  const exhibit: IExhibitDetail = JSON.parse(s2);
+  expect(exhibit.year).toBeUndefined();
 });
 
 test("getAll_GetsDescription", async () => {
-    // let ACTUAL_DES: string = null;
-    await fetch("/.netlify/functions/galleryData")
-    .then(async (response: Response) => {
-        const a = response.json();
-        await a.then ((v: any) => console.log(v));
-    });
+  // let ACTUAL_DES: string = null;
+  await fetch("/.netlify/functions/galleryData").then(
+    async (response: Response) => {
+      const a = response.json();
+      await a.then((v: any) => console.log(v));
+    },
+  );
 });

@@ -5,41 +5,40 @@ import { DbClient, getConnection, getDb } from "../ts/DbClient";
 import { IExhibitDetail } from "../ts/Exhibit";
 
 exports.handler = async (event: APIGatewayEvent, context: Context) => {
-    return getData()
+  return getData()
     .then((e: IExhibitDetail[]) => {
-        // tslint:disable-next-line:no-console
-        console.log(e);
-        return {
-            body: JSON.stringify(e),
-            statusCode: 200,
-        };
+      // tslint:disable-next-line:no-console
+      console.log(e);
+      return {
+        body: JSON.stringify(e),
+        statusCode: 200,
+      };
     })
     .catch((error: MongoError) => {
-        return {
-            body: "Error:" + error,
-            statusCode: 500,
-        };
+      return {
+        body: "Error:" + error,
+        statusCode: 500,
+      };
     });
 };
 
 export interface IExhibit {
-    id: number;
-    description?: string;
+  id: number;
+  description?: string;
 }
 
 async function getData(): Promise<IExhibitDetail[]> {
-    dotenv.config();
+  dotenv.config();
 
-    const dbUrl = process.env.DB_URL;
-    const dbName = process.env.DB_NAME;
-    const dbCollection = process.env.DB_COLLECTION;
-    // tslint:disable-next-line:no-console
-    console.log("Connecting to: " + dbUrl);
+  const dbUrl = process.env.DB_URL;
+  const dbName = process.env.DB_NAME;
+  const dbCollection = process.env.DB_COLLECTION;
+  // tslint:disable-next-line:no-console
+  console.log("Connecting to: " + dbUrl);
 
-    return getConnection(dbUrl)
-    .then((connection: MongoClient) => {
-        const dbTest: Db = getDb(connection, dbName);
-        const col: Collection<IExhibitDetail> = dbTest.collection(dbCollection);
-        return col.find<IExhibitDetail>().toArray();
-    });
+  return getConnection(dbUrl).then((connection: MongoClient) => {
+    const dbTest: Db = getDb(connection, dbName);
+    const col: Collection<IExhibitDetail> = dbTest.collection(dbCollection);
+    return col.find<IExhibitDetail>().toArray();
+  });
 }
